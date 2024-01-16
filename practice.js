@@ -14,7 +14,11 @@
   Then alert your name using dot notation.
 */
 
-//Code here
+const me = {
+  name: "Cat",
+  age: 32,
+};
+console.log(me.name);
 
 /// ////////////// PROBLEM 2 ///////////////////
 
@@ -23,32 +27,41 @@
   Have the values to those keys be strings that are equal to your favorite thing in that category.
 */
 
-//Code here
+const favoriteThings = {
+  band: "Noah Kahan",
+  food: "Sushi",
+  person: "my kids",
+  book: "The Fault in Our Stars",
+  movie: "Lady Bird",
+  holiday: "Fourth of July",
+};
 
 /*
   After you've made your object, use bracket or dot notation to add another key named 'car' with the value being your favorite car
   and then another key named 'brand' with the value being your favorite brand.
 */
 
-//Code here
+favoriteThings.car = "Subaru";
+favoriteThings.brand = "Outback";
 
 /*
   Now use bracket or dot notation to change the value of the food key in your favoriteThings object to be 'Chicken Nuggets'
   and change the value of the book key in your favoriteThings object to be 'Harry Potter'.
 */
 
-//Code here
+favoriteThings.food = "Chicken Nuggets";
+favoriteThings.book = "Harry Potter";
 
 /// ////////////// PROBLEM 3 ///////////////////
 
 // Do not edit the code below.
 const user2 = {
-  name: 'Bryan',
+  name: "Bryan",
   age: 24,
-  pwHash: 'U+Ldlngx2BYQk',
-  email: 'BryanSmith33@gmail.com',
-  birthday: '05/02/1990',
-  username: 'bryansmith33',
+  pwHash: "U+Ldlngx2BYQk",
+  email: "BryanSmith33@gmail.com",
+  birthday: "05/02/1990",
+  username: "bryansmith33",
 };
 // Do not edit the code above.
 
@@ -58,7 +71,8 @@ const user2 = {
   Make that change without editing the code above.
 */
 
-//Code Here
+user2.name = "Bryan G. Smith";
+user2.email = "bryan.smith@devmounta.in";
 
 /// ////////////// PROBLEM 4 ///////////////////
 
@@ -69,7 +83,9 @@ let shoppingCart = {};
   It should add a new key-value pair to the cart with the item and quantity.
 */
 
-//Code Here
+function addToCart(item, quantity) {
+  shoppingCart[item] = quantity;
+}
 
 /// ////////////// PROBLEM 5 ///////////////////
 
@@ -79,7 +95,14 @@ let shoppingCart = {};
   Return the updated object.
 */
 
-//Code Here
+function greaterThan10(object) {
+  for (let obj in object) {
+    if (object[obj] > 10) {
+      object[obj] = 0;
+    }
+  }
+  return object;
+}
 
 /// ////////////// PROBLEM 6 ///////////////////
 
@@ -89,7 +112,12 @@ let shoppingCart = {};
   Return the updated object.
 */
 
-//Code Here
+function double(object) {
+  for (let obj in object) {
+    object[obj] *= 2;
+  }
+  return object;
+}
 
 /// ////////////// PROBLEM 7 ///////////////////
 
@@ -98,7 +126,8 @@ let shoppingCart = {};
 */
 
 function showValues(obj) {
-  //Code Here
+  let string = Object.values(obj).join("");
+  return string;
 }
 
 /// ////////////// PROBLEM 8 ///////////////////
@@ -109,7 +138,14 @@ function showValues(obj) {
   Return that object so that whenever you invoke makeCard, you get a brand new credit card.
 */
 
-//Code Here
+function makeCard(cardNumber, expirationDate, securityCode) {
+  const creditCard = {
+    cardNumber: cardNumber,
+    expirationDate: expirationDate,
+    securityCode: securityCode,
+  };
+  return creditCard;
+}
 
 /// ////////////// PROBLEM 9 ///////////////////
 
@@ -118,7 +154,10 @@ function showValues(obj) {
   Delete the property password and return the object.
 */
 
-//Code Here
+function removePassword(object) {
+  delete object.password;
+  return object;
+}
 
 /// ////////////// PROBLEM 10 ///////////////////
 
@@ -135,7 +174,11 @@ const deleteTheBigNumbers = {
   Write a for...in loop that deletes every property from the object deleteTheBigNumbers whose value is greater than 100.
 */
 
-//Code Here
+for (let item in deleteTheBigNumbers) {
+  if (deleteTheBigNumbers[item] > 100) {
+    delete deleteTheBigNumbers[item];
+  }
+}
 
 /*
   Once you complete a problem, refresh ./destructuring.html in your browser and check to see if the problem's test(s) are passing.
@@ -149,9 +192,9 @@ const deleteTheBigNumbers = {
 
 // Do not edit the code below.
 const carDetails = {
-  color: 'red',
-  make: 'toyota',
-  model: 'tacoma',
+  color: "red",
+  make: "toyota",
+  model: "tacoma",
   year: 1994,
 };
 // Do not edit the code above.
@@ -160,7 +203,7 @@ const carDetails = {
   Use object destructuring to save the property values from the object carDetails into new variables.
 */
 
-//Code Here
+const { color, make, model, year } = carDetails;
 
 /// ////////////// PROBLEM 12 ///////////////////
 
@@ -171,10 +214,10 @@ const carDetails = {
 */
 
 function greeting(obj) {
-  //Code Here
+  const { firstName, lastName, title } = obj;
 
   // Do not edit the code below.
-  return 'Hello, ' + title + ' ' + firstName + ' ' + lastName + '!';
+  return "Hello, " + title + " " + firstName + " " + lastName + "!";
   // Do not edit the code above.
 }
 
@@ -188,7 +231,11 @@ function greeting(obj) {
   Sum up the values and return the total number.
 */
 
-//Code Here
+function totalPopulation(obj) {
+  const { utah, california, texas, arizona } = obj;
+  let sumPopulation = utah + california + texas + arizona;
+  return sumPopulation;
+}
 
 /// ////////////// PROBLEM 14 ///////////////////
 
@@ -200,41 +247,48 @@ function greeting(obj) {
   Return false otherwise.
 */
 
-//Code Here
+function usCanadaBorder(arr) {
+  const [latitude, longitude] = arr;
+  if (latitude === 49 && longitude >= -123 && longitude <= -95) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 /// ////////////// PROBLEM 15 ///////////////////
 
 // Do not edit the code below.
 const employees = [
   {
-    firstName: 'Von',
-    lastName: 'Budibent',
-    email: 'vbudibent0@163.com',
-    department: 'Sales',
+    firstName: "Von",
+    lastName: "Budibent",
+    email: "vbudibent0@163.com",
+    department: "Sales",
   },
   {
-    firstName: 'Catherina',
-    lastName: 'Swalowe',
-    email: 'cswalowe1@example.com',
-    department: 'Engineering',
+    firstName: "Catherina",
+    lastName: "Swalowe",
+    email: "cswalowe1@example.com",
+    department: "Engineering",
   },
   {
-    firstName: 'Theo',
-    lastName: 'Trill',
-    email: 'ttrill2@sina.com.cn',
-    department: 'Services',
+    firstName: "Theo",
+    lastName: "Trill",
+    email: "ttrill2@sina.com.cn",
+    department: "Services",
   },
   {
-    firstName: 'Elsy',
-    lastName: 'McCrorie',
-    email: 'emccrorie3@netscape.com',
-    department: 'Legal',
+    firstName: "Elsy",
+    lastName: "McCrorie",
+    email: "emccrorie3@netscape.com",
+    department: "Legal",
   },
   {
-    firstName: 'Lorie',
-    lastName: 'Handsheart',
-    email: 'lhandsheart4@fotki.com',
-    department: 'Research and Development',
+    firstName: "Lorie",
+    lastName: "Handsheart",
+    email: "lhandsheart4@fotki.com",
+    department: "Research and Development",
   },
 ];
 // Do not edit the code above.
@@ -246,21 +300,31 @@ const employees = [
     3. Return the updated employee array.
 */
 
-//Code Here
+function employeeUpdater() {
+  for (let item in employees) {
+    if (employees[item].firstName === "Theo") {
+      delete employees[item].firstName;
+    }
+    if (employees[item].firstName === "Lorie") {
+      employees[item].department = "HR";
+    }
+  }
+  return employees;
+}
 
 /// ////////////// PROBLEM 16 ///////////////////
 
 // Do not edit the code below.
 const cat = {
-  name: 'Fluffy',
+  name: "Fluffy",
   catFriends: [
     {
-      name: 'Grumpy',
-      activities: ['be grumpy', 'eat food'],
+      name: "Grumpy",
+      activities: ["be grumpy", "eat food"],
     },
     {
-      name: 'Lazy Bones',
-      activities: ['sleep', 'pre-sleep naps'],
+      name: "Lazy Bones",
+      activities: ["sleep", "pre-sleep naps"],
     },
   ],
 };
@@ -272,31 +336,30 @@ const cat = {
     2. Assign fluffy2ndFriend the name of Fluffy's 2nd friend.
 */
 
-//Code Here
-let grumpyActivity;
-let fluffy2ndFriend;
+let grumpyActivity = cat.catFriends[0].activities[1];
+let fluffy2ndFriend = cat.catFriends[1].name;
 
 /// ////////////// PROBLEM 17 ///////////////////
 
 // Do not edit the code below.
 const myCar = {
-  make: 'Toyota',
-  model: 'Corolla',
+  make: "Toyota",
+  model: "Corolla",
   year: 1992,
   accidents: [
     {
-      date: '3/15/93',
-      damage: '$5,000',
+      date: "3/15/93",
+      damage: "$5,000",
       atFaultForAccident: true,
     },
     {
-      date: '7/4/98',
-      damage: '$2,200',
+      date: "7/4/98",
+      damage: "$2,200",
       atFaultForAccident: true,
     },
     {
-      date: '6/22/99',
-      damage: '$7,900',
+      date: "6/22/99",
+      damage: "$7,900",
       atFaultForAccident: true,
     },
   ],
@@ -312,7 +375,11 @@ const myCar = {
     3. Change atFaultForAccident from true to false.
 */
 
-//Code Here
+function recordCleaner() {
+  for (let accident in myCar.accidents) {
+    myCar.accidents[accident].atFaultForAccident = false;
+  }
+}
 
 /// ////////////// PROBLEM 18 ///////////////////
 
@@ -330,7 +397,10 @@ const myCar = {
   Find the smallest number of the three and return that number.
 */
 
-//Code Here
+function largeNumbers({ first, second, third }) {
+  const lowestNumber = Math.min(first, second, third);
+  return lowestNumber;
+}
 
 /// ////////////// PROBLEM 19 ///////////////////
 
@@ -340,4 +410,14 @@ const myCar = {
   Find the longest array and return that array.
 */
 
-//Code Here
+function numberGroups({ a, b, c }) {
+  const maxLength = Math.max(a.length, b.length, c.length);
+
+  if (maxLength === a.length) {
+    return a;
+  } else if (maxLength === b.length) {
+    return b;
+  } else {
+    return c;
+  }
+}
